@@ -552,8 +552,10 @@ function drawData()
 
     if no_connection == false then
 
-        bg = data[3]
+        bg = data[3] / 18
         bgNum = tonumber(bg)
+        blood = bgNum / 18
+        blood = tostring(math.floor(blood * 10 + 0.5) / 10)
         delta = bgNum - tonumber(data[8])
 
         screen.setCursorPos(draw_x,1)
