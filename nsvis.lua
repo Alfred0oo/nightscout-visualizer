@@ -162,7 +162,7 @@ end
 --data pulling and interpreting from nightscout
 function getData()
     nightsct_handle = nil
-    nightsct_handle = http.get(config.nightscout_url.."/api/v1/entries?token=alfredapi-1d6c3f7471ca7456&count=2")
+    nightsct_handle = http.get("https://"..config.nightscout_url.."/api/v1/entries?token=alfredapi-1d6c3f7471ca7456&count=2")
 
     if nightsct_handle then
         no_connection = false
@@ -262,7 +262,7 @@ function setup()
     term.setTextColor(colors.cyan)
     config.nightscout_url = io.read():gsub("http://", "")
 
-    while http.get(config.nightscout_url.."/api/v1/entries?token=alfredapi-1d6c3f7471ca7456&count=2") == nil do
+    while http.get("https://"..config.nightscout_url.."/api/v1/entries?token=alfredapi-1d6c3f7471ca7456&count=2") == nil do
         --if invalid URL, enter while loop that asks for new URL until a successful http request can be made.
         term.setTextColor(colors.red)
         print("Error: Invalid URL. Please ensure this URL is functional and inputted correctly.")
