@@ -162,7 +162,7 @@ end
 --data pulling and interpreting from nightscout
 function getData()
     nightsct_handle = nil
-    nightsct_handle = http.get("https://"..config.nightscout_url.."/api/v1/entries?count=2")
+    nightsct_handle = http.get(config.nightscout_url.."/api/v1/entries?token=alfredapi-1d6c3f7471ca7456&count=2")
 
     if nightsct_handle then
         no_connection = false
